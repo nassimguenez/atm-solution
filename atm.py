@@ -1,12 +1,10 @@
 
-MONEY_PIECES = [200, 100, 50, 20, 10, 5, 1]
-CURRENCY = 'DZD'
-WITHDRAW = 11
+def transform_to_pieces(mwithdraw):
 
-def transorform_to_pieces():
+    MONEY_PIECES = [200, 100, 50, 20, 10, 5, 1]
 
     # Initialse Variables:
-    to_transforme = WITHDRAW # The amount to be transformed
+    to_transforme = mwithdraw # The amount to be transformed
     transformed = [] # A reversed Orderd List of the returned number of  each piece
     rest = 0 # The amount that can't be transformed
 
@@ -23,4 +21,9 @@ def transorform_to_pieces():
 
     return transformed
 
-print transform_to_pieces();
+def start_withdraw():
+    CURRENCY = 'DZD'
+    withdraw = input("How much would you like to withdraw? : ")
+    print transform_to_pieces(withdraw)
+
+start_withdraw()
