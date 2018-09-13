@@ -22,7 +22,7 @@ def transform_to_pieces(mwithdraw):
     return transformed
 
 # display Function
-def display(list_of_monye_pieces, CURRENCY):
+def display(list_of_monye_pieces):
     print "You have withdrawed the following amount of money: \n"
     i = 0
     while i < 6:
@@ -31,8 +31,16 @@ def display(list_of_monye_pieces, CURRENCY):
 
 # The core function
 def start_withdraw():
-    CURRENCY = 'DZD'
-    withdraw = input("How much would you like to withdraw? : ")
-    display(transform_to_pieces(withdraw), CURRENCY)
+    stop_withdraw = False
+    while not stop_withdraw:
+        status = raw_input("Do you want to proceed to withdraw (yes/no): ")
+        if status == "yes":
+            withdraw = input("How much would you like to withdraw? : ")
+            if (withdraw >= 10) and (withdraw < 1000):
+                display(transform_to_pieces(withdraw))
+            else:
+                print "withdraw amount must be not less than 10 DZD nor bigger than 1000 DZD"
+        else:
+            stop_withdraw = True
 
 start_withdraw()
