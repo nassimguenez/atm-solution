@@ -1,5 +1,6 @@
 MONEY_PIECES = [200, 100, 50, 20, 10, 5, 1]
 
+# trasform the withdraw money to pieces
 def transform_to_pieces(mwithdraw):
 
     # Initialse Variables:
@@ -20,6 +21,7 @@ def transform_to_pieces(mwithdraw):
 
     return transformed
 
+# display Function
 def display(list_of_monye_pieces, CURRENCY):
     print "You have withdrawed the following amount of money: \n"
     i = 0
@@ -27,6 +29,7 @@ def display(list_of_monye_pieces, CURRENCY):
         print list_of_monye_pieces[i], " Piece of ", MONEY_PIECES[i], ".\n"
         i += 1
 
+# The core function
 def start_withdraw():
     CURRENCY = 'DZD'
     withdraw = input("How much would you like to withdraw? : ")
