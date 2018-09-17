@@ -1,4 +1,5 @@
 MONEY_PIECES = [200, 100, 50, 20, 10, 5, 1]
+MINIMUM_BALANCE = 10
 
 # trasform the withdraw money to pieces
 def transform_to_pieces(mrequest):
@@ -33,14 +34,15 @@ def withdraw(mlist_with_each_monye_piece_number):
 # The core function
 def start_withdraw():
     stop_withdraw = False
+    balance = 1000
     while not stop_withdraw:
         status = raw_input("Do you want to proceed to withdraw (yes/no): ")
         if status == "yes":
             request = input("How much would you like to withdraw? : ")
-            if (request >= 10) and (request < 1000):
+            if (request >= 10) and (request < balance):
                 withdraw(transform_to_pieces(request))
             else:
-                print "withdraw amount must be not less than 10 DZD nor bigger than 1000 DZD"
+                print "withdraw amount must be not less than", MINIMUM_BALANCE, " DZD nor bigger than ", balance, " DZD"
         else:
             stop_withdraw = True
 
