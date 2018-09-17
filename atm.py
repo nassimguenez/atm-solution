@@ -24,26 +24,35 @@ def transform_to_pieces(mrequest):
 
 # display Function
 def withdraw(mlist_with_each_monye_piece_number):
-    i = 0
-    while i < len(mlist_with_each_monye_piece_number):
-        while mlist_with_each_monye_piece_number[i] > 0:
-                print("Give -> %3i DZD" %(MONEY_PIECES[i]))
-                mlist_with_each_monye_piece_number[i]-=1
-        i+=1
+    status = raw_input("Are Sure You Want To Proceed (yes/no)?: ")
+    if status == 'yes':
+        i = 0
+        while i < len(mlist_with_each_monye_piece_number):
+            while mlist_with_each_monye_piece_number[i] > 0:
+                    print("Give -> %3i DZD" %(MONEY_PIECES[i]))
+                    mlist_with_each_monye_piece_number[i]-=1
+            i+=1
+    else:
+        print "Procedure Has Been Aborted! \n"
 
 # The core function
-def start_withdraw():
-    stop_withdraw = False
+def start_atm():
+    stop_atm = False
     balance = 1000
-    while not stop_withdraw:
-        status = raw_input("Do you want to proceed to withdraw (yes/no): ")
-        if status == "yes":
-            request = input("How much would you like to withdraw? : ")
+    while not stop_atm:
+        print "Welcome To Our Service \n"
+        print "What Do You Want To Do? \n"
+        status = input(" Press: \n 1: (To Display Your Balance) \n 2: (To Make A Withdraw) \n 3: (To Exit) \n ")
+
+        if status == 1:
+            print "\n Your Balance is : ", balance, "\n"
+        elif status == 2:
+            request = input("\n How much would you like to withdraw? : ")
             if (request >= 10) and (request < balance):
                 withdraw(transform_to_pieces(request))
             else:
-                print "withdraw amount must be not less than", MINIMUM_BALANCE, " DZD nor bigger than ", balance, " DZD"
-        else:
-            stop_withdraw = True
+                print "\n withdraw amount must be not less than", MINIMUM_BALANCE, " DZD nor bigger than ", balance, " DZD\n"
+        elif status == 3:
+            stop_atm = True
 
-start_withdraw()
+start_atm()
