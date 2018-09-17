@@ -1,10 +1,10 @@
 MONEY_PIECES = [200, 100, 50, 20, 10, 5, 1]
 
 # trasform the withdraw money to pieces
-def transform_to_pieces(mwithdraw):
+def transform_to_pieces(mrequest):
 
     # Initialse Variables:
-    to_transforme = mwithdraw # The amount to be transformed
+    to_transforme = request # The amount to be transformed
     transformed = [] # A reversed Orderd List of the returned number of  each piece
     rest = 0 # The amount that can't be transformed
 
@@ -35,9 +35,9 @@ def start_withdraw():
     while not stop_withdraw:
         status = raw_input("Do you want to proceed to withdraw (yes/no): ")
         if status == "yes":
-            withdraw = input("How much would you like to withdraw? : ")
-            if (withdraw >= 10) and (withdraw < 1000):
-                display(transform_to_pieces(withdraw))
+            request = input("How much would you like to withdraw? : ")
+            if (request >= 10) and (request < 1000):
+                display(transform_to_pieces(request))
             else:
                 print "withdraw amount must be not less than 10 DZD nor bigger than 1000 DZD"
         else:
